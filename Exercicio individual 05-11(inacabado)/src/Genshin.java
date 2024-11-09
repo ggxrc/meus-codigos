@@ -23,7 +23,7 @@ public class Genshin extends Jogo{
         System.out.println("Vida do Inimigo no inicio: " + this.vida_inimigo);
         
         do {
-            int chance = rng.nextInt(2);
+            int chance = rng.nextInt(3);
             dano = rng.nextInt(20);
             switch (chance) {
                 case 1:
@@ -38,25 +38,26 @@ public class Genshin extends Jogo{
             }
             System.out.println("Vida do jogador: " + this.vida_player);
             System.out.println("Vida do Inimigo: " + this.vida_inimigo);
-        } while ((vida_player >= 0) || (vida_inimigo >= 0));
+        } while ((vida_player >= 0) && (vida_inimigo >= 0));
     }
 
-    public int gacha() {
+    public String gacha() {
         for (int i = 0; i < 10; i++) {
-            int chance = rng.nextInt(0, 100);
+            int chance = rng.nextInt(101);
             if (chance >= 0 && chance <= 70) {
                 System.out.println("ganhou um personagem 3 estrelas");
-                return t3++;
+                t3++;
                 
             } else if (chance >= 71 && chance <= 90) {
                 System.out.println("ganhou um personagem 4 estrelas");
-                return t4++;
+                t4++;
             } else{
                 System.out.println("parabéns, você ganhou um 5 estrelas");
-                return t5++;
+                t5++;
             }  
         }
-                
+        
+        return "Conseguiu ao todo: \nT3: "+ t3 +"\nT4: "+t4+"\nT5: "+t5; 
     }
 
     public static int getResina() {

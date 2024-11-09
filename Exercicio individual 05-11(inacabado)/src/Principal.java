@@ -20,15 +20,28 @@ public class Principal {
             
             switch (op) {
                 case 1:
-                    genshin.gacha();
+                    System.out.println(genshin.gacha());;
                     break;
+
                 case 2:
+                if (Genshin.getResina() == 0) {
+                    System.out.println("A sua resina acabou espera até amanha");
+                    break;
+                }else{
                     Genshin.setResina(Genshin.getResina() - 40);
-                    System.out.println(Genshin.getResina());
+                    System.out.println("Resina: "+Genshin.getResina());
+                }
                     break;
                 case 3:
                     genshin.luta();
+                    break;
+
+                case 4:
+                    System.out.println("Saindo...");
+                    break;
+
                 default:
+                System.out.println("Opção Invalida");
                     break;
             }
         } while (op != 4);
